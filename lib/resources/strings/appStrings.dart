@@ -6,6 +6,8 @@ class AppString {
   static const String text4 =
       "Stay in touch with friends, family, and colleagues no matter where you are.";
   static const String getStarted = "Get Started";
+  static const String logout = "Log Out";
+  static const String login = "Login";
 }
 
 class AppStringStyle {

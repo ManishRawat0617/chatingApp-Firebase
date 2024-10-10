@@ -2,7 +2,7 @@ import 'package:chat_app_firebase/resources/assets/images.dart';
 import 'package:chat_app_firebase/resources/color/colors.dart';
 import 'package:chat_app_firebase/resources/routes/routeName.dart';
 import 'package:chat_app_firebase/resources/strings/appStrings.dart';
-import 'package:chat_app_firebase/view/getStarted/widget/Button.dart';
+import 'package:chat_app_firebase/view/getStarted/widget/getStartedButton.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:velocity_x/velocity_x.dart';

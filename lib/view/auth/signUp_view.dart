@@ -16,6 +16,7 @@ class SignUpView extends StatefulWidget {
 }
 
 class _SignUpViewState extends State<SignUpView> {
+
   final signupController = Get.put(AuthViewModel());
 
  
