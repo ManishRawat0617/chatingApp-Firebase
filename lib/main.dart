@@ -1,6 +1,4 @@
-import 'package:chat_app_firebase/resources/routes/routeName.dart';
 import 'package:chat_app_firebase/resources/routes/routes.dart';
-import 'package:chat_app_firebase/view/splash/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';

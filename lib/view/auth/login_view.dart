@@ -28,7 +28,7 @@ class _LoginViewState extends State<LoginView> {
           SizedBox(
             height: size.height * 0.2,
           ),
-          AppName(),
+          const AppName(),
           SizedBox(
             height: size.height * 0.07,
           ),
@@ -68,24 +68,22 @@ class _LoginViewState extends State<LoginView> {
             onTap: () {
               Get.toNamed(RouteName.signUpScreen);
             },
-            child: Container(
-              child: const Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    "Don't have an account !",
-                    style: TextStyle(fontSize: 20),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Text(
-                    "Sign Up",
-                    style: TextStyle(fontSize: 23, color: AppColor.white),
-                  )
-                ],
-              ),
+            child: const Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  "Don't have an account !",
+                  style: TextStyle(fontSize: 20),
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Text(
+                  "Sign Up",
+                  style: TextStyle(fontSize: 23, color: AppColor.white),
+                )
+              ],
             ),
           )
         ],

@@ -17,53 +17,71 @@ class GetStartedView extends StatefulWidget {
 class _GetStartedViewState extends State<GetStartedView> {
   @override
   Widget build(BuildContext context) {
+    // Get the screen size
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       body: Container(
         height: double.infinity,
         width: double.infinity,
         decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage(AppImage.getStartedBg), fit: BoxFit.fill)),
+          image: DecorationImage(
+            image: AssetImage(AppImage.getStartedBg),
+            fit: BoxFit.cover, // Changed to cover for better scaling
+          ),
+        ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 40),
+          padding: EdgeInsets.symmetric(
+              vertical: screenHeight * 0.1, horizontal: screenWidth * 0.05),
           child: Column(
+            mainAxisAlignment:
+                MainAxisAlignment.spaceBetween, // Space items evenly
             children: [
-              AppString.welcomeText.text
-                  .size(45)
-                  .align(TextAlign.center)
-                  .color(AppColor.white)
-                  .fontFamily(AppStringStyle.irishGrover)
-                  .make(),
-              const SizedBox(
-                height: 20,
+              Column(
+                children: [
+                  AppString.welcomeText.text
+                      .size(screenHeight * 0.05) // Responsive font size
+                      .align(TextAlign.center)
+                      .color(AppColor.white)
+                      .fontFamily(AppStringStyle.irishGrover)
+                      .make(),
+                  const SizedBox(height: 10), // Reduced spacing for better fit
+                  AppString.text2.text
+                      .size(screenHeight * 0.04) // Responsive font size
+                      .align(TextAlign.left)
+                      .color(AppColor.white)
+                      .fontFamily(AppStringStyle.irishGrover)
+                      .make(),
+                  AppString.text3.text
+                      .size(screenHeight * 0.04) // Responsive font size
+                      .align(TextAlign.right)
+                      .color(AppColor.white)
+                      .fontFamily(AppStringStyle.irishGrover)
+                      .make(),
+                ],
               ),
-              AppString.text2.text
-                  .size(27)
-                  .align(TextAlign.left)
-                  .color(AppColor.white)
-                  .fontFamily(AppStringStyle.irishGrover)
-                  .make(),
-              AppString.text3.text
-                  .size(27)
-                  .align(TextAlign.right)
-                  .color(AppColor.white)
-                  .fontFamily(AppStringStyle.irishGrover)
-                  .make(),
-              const Image(image: AssetImage(AppImage.getStartedImg)),
-              AppString.text4.text
-                  .size(20)
-                  .align(TextAlign.center)
-                  .color(AppColor.white)
-                  .fontFamily(AppStringStyle.irishGrover)
-                  .make(),
-              SizedBox(
-                height: Get.height * 0.02,
+              Expanded(
+                child: Center(
+                  child: Image(image: AssetImage(AppImage.getStartedImg)),
+                ),
               ),
-              GetStartedButton(
-                ontap: () {
-                  Get.toNamed(RouteName.loginScreen);
-                },
-              )
+              Column(
+                children: [
+                  AppString.text4.text
+                      .size(screenHeight * 0.025) // Responsive font size
+                      .align(TextAlign.center)
+                      .color(AppColor.white)
+                      .fontFamily(AppStringStyle.irishGrover)
+                      .make(),
+                  SizedBox(height: screenHeight * 0.02), // Dynamic spacing
+                  GetStartedButton(
+                    ontap: () {
+                      Get.toNamed(RouteName.loginScreen);
+                    },
+                  ),
+                ],
+              ),
             ],
           ),
         ),

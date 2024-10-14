@@ -1,13 +1,9 @@
-
-
-import 'package:chat_app_firebase/data/app_exception.dart';
 import 'package:chat_app_firebase/view_model/services/auth/unipueNumber.dart';
 import 'package:chat_app_firebase/model/signUpModel/userModel.dart';
 import 'package:chat_app_firebase/resources/routes/routeName.dart';
 import 'package:chat_app_firebase/utilis/utilis.dart';
 import 'package:chat_app_firebase/view/home/homeView.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -48,9 +44,7 @@ class AuthViewModel extends GetxController {
 
   void signup() async {
     AuthServices authServices = AuthServices();
-    // FirebaseAuth auth = FirebaseAuth.instance;
-    // final db = FirebaseFirestore.instance;
-    // final ref = db.collection('users');
+   
 
 // collect inputs from these data
     final String email = emailController.value.text;
@@ -77,36 +71,6 @@ try{
 }catch(err){
    Utilis.toastMessage(err.toString());
 }
-    // try {
-    //   // Creating a user with Firebase Auth
-    //   await auth
-    //       .createUserWithEmailAndPassword(
-    //     email: emailController.value.text,
-    //     password: passwordController.value.text,
-    //   )
-    //       .then((value) {
-    //     Utilis.snackBar("Create User", value.user!.email.toString());
-    //   });
-
-      // Adding user details to Firestore
-      // await ref.add(newUser.toMap()).then((DocumentReference doc) {
-      //   Utilis.toastMessage('DocumentSnapshot added with id ${doc.id}');
-      //   print('DocumentSnapshot added with id ${doc.id}');
-      // });
-
-      // Clear input fields after signup
-    
-    // }
-  //    on SocketException {
-  //     Utilis.toastMessage("No Internet connection.");
-  //     throw InternetException();
-  //   } catch (err) {
-  //     Utilis.toastMessage(err.toString());
-  //     if (kDebugMode) {
-  //       print(err);
-  //     }
-  //   }
-  // }
   }
   Future<void> logout() async {
     await FirebaseAuth.instance.signOut();

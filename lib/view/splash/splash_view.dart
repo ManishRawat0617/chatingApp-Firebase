@@ -14,40 +14,54 @@ class SplashView extends StatefulWidget {
 }
 
 class _SplashViewState extends State<SplashView> {
-  SplashServices splashServices = SplashServices();
+  final SplashServices splashServices = SplashServices();
+
   @override
   void initState() {
-   
     super.initState();
-    splashServices.isUserLogin();
+    splashServices.checkUserLogin();
   }
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    final size = MediaQuery.of(context).size; // Get screen size
+    final isSmallScreen = size.width < 600; // Check if the screen is small
+
     return Scaffold(
       body: Container(
         height: double.infinity,
         width: double.infinity,
-        decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage(
-                  AppImage.splashScreenBg,
-                ),
-                fit: BoxFit.cover)),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(AppImage.splashScreenBg),
+            fit: BoxFit.cover,
+          ),
+        ),
         child: Column(
+          mainAxisAlignment:
+              MainAxisAlignment.center, // Center content vertically
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 20.0),
-              child: Lottie.asset(AppIcons.appLogo),
+              padding: EdgeInsets.only(
+                  top: size.height * 0.05), // Responsive padding
+              child: Lottie.asset(
+                AppIcons.appLogo,
+                width: isSmallScreen
+                    ? size.width * 0.5
+                    : size.width * 0.3, // Responsive Lottie width
+                height: isSmallScreen
+                    ? size.width * 0.5
+                    : size.width * 0.3, // Responsive Lottie height
+                fit: BoxFit.fill,
+              ),
             ),
-            VxBox().height(size.height * 0.2).make(),
+            SizedBox(height: size.height * 0.1), // Responsive height
             AppString.appTitle.text
-                .size(52)
+                .size(isSmallScreen ? 30 : 52) // Responsive font size
                 .fontWeight(FontWeight.bold)
                 .white
                 .fontFamily(AppStringStyle.irishGrover)
-                .make()
+                .make(),
           ],
         ),
       ),
